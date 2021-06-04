@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/CSS/perfil.css">
+    <link rel="stylesheet" href="/CSS/navbar.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/JS/perfil.js"></script>
+</head>
+
+<body>
+    <section class="nav-bar-top">
+        <div class="nav-container">
+            <div>
+                <a href="" class="logo">ProjectGO</a>
+            </div>
+            <nav>
+                <div class="nav-mobile">
+                    <a id="nav-toggle" href="#!"></a>
+                </div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <div id="container-usuario">
+                            <img th:src="@{'/' + ${usuario.usuario} + '/imagen'}" height="50" />
+                            <div th:text="${nombreUsuario}"></div>
+                        </div>
+                        <ul class="nav-dropdown">
+                        	<span th:switch="${autentificado}">
+                        		<span th:case="1">                     		
+		                            <li>
+		                                <a th:href="@{/perfil}">Mi perfil</a>
+		                            </li>
+		                            <span th:if="${admin}">
+		                            	<li><a th:href="@{/administrar}">Administrar usuarios</a></li>
+		                            </span>
+		                            <li>
+		                                <a th:href="@{/logout}">Cerrar sesión</a>
+		                            </li>
+                        		</span>
+                        		<span th:case="0">                     		
+		                            <li>
+		                                <a th:href="@{/login}">Iniciar sesión</a>
+		                            </li>
+                        		</span>
+                        	</span>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    
+	<section class="body-container">
+	
+		<div id="imagen-container">			
+			<img id="imagen" th:src="@{'/' + ${usuario.usuario} + '/imagen'}" height="400" width="400"/>
+			<form action="/cambiarImagen" method="POST" enctype="multipart/form-data" class="formImagen">
+				<input type="file" name="imagen"></input>          
+                <button type="submit" class="btn btn-primary btnImagen">Guardar imagen</button>
+            </form>
+		</div>
+		
+		<form>
+			<fieldset>
+				<legend>Datos:</legend>
+		        <div>Usuario: </div><div th:text="${nombreUsuario}"></div><br>
+		        <div>Correo: </div><div th:text="${nombreUsuario}"></div><br>
+		        <div>Teléfono: </div><div th:text="${nombreUsuario}"></div><br>
+			</fieldset>
+	    </form>	
+	    	
+	</section>
+	
+    <section class="nav-bar-bottom">
+        <div class="nav-container">
+
+            <nav>
+
+            </nav>
+        </div>
+    </section>
+</body>
+
+</html>

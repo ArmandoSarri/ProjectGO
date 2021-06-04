@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/CSS/login.css">
+    <link rel="stylesheet" href="/CSS/navbar.css">
+</head>
+
+<body>
+    <section class="nav-bar-top">
+        <div class="nav-container">
+            <div>
+                <a href="" class="logo">ProjectGO</a>
+            </div>
+           <nav>
+                <div class="nav-mobile">
+                    <a id="nav-toggle" href="#!"></a>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <form action="/login" method="POST">
+        <div>Usuario</div><input type="text" id="username" name="username"><br>
+        <div>Contraseña</div><input type="password" id="password" name="password"><br>
+        <input type="submit" />
+        <a th:href="@{/registro}">Regístrate aquí</a>
+    </form>
+
+    <section class="nav-bar-bottom">
+        <div class="nav-container">
+
+            <nav>
+
+            </nav>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+body{
+	position: relative;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+}
+form {
+    margin-left: 45%;
+    margin-right: 45%;
+    margin-top: 5%;
+}
+
+form>div {
+    margin: 5px;
+}
+
+form>input {
+    margin: 5px;
+}
+
+form {
+    height: 400px;
+}
+
+.nav-bar-bottom {
+    width: 100vw;
+    position: absolute;
+    bottom: 20px;
+}

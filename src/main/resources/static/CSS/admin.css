@@ -1,0 +1,19 @@
+body{
+	position: relative;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0px;
+}
+
+
+.nav-bar-bottom {
+    width: 100vw;
+    position: absolute;
+    bottom: 20px;
+}
+
+.tabla{
+	margin-left: 45%;
+    margin-right: 45%;
+    margin-top: 5%;
+}
