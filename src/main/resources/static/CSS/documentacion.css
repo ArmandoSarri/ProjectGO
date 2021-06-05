@@ -1,0 +1,61 @@
+html, body{
+    height: 100%;
+}
+
+body{
+	display: flex;
+}
+
+.nav-bar-top,
+.nav-bar-bottom {
+    position: fixed;
+}
+
+#container {
+    flex-grow: 3;
+    height: calc(100% - 240px); 
+    display: flex;
+}
+
+#chat {
+	border: 1px solid black;
+    flex-grow: 1;
+    max-width: 400px;
+    height: calc(100% - 140px); 
+    display: grid;
+    grid-template-rows: 92% 8%;
+    padding-bottom: 50px;
+    overflow-wrap: break-word;
+    margin-right: 150px;
+}
+
+#container-mensajes {
+    margin-left: 20px;
+    color: black;
+}
+
+#container-mensajes div{
+    max-width: 350px;
+    margin-top: 5px;
+}
+
+#container-mensajes div:first-child{
+    margin-top: 10px;
+}
+
+#container-mensajes a{
+	color: red;
+}
+
+#chat form{
+	width: 100%;
+}
+
+#chat input {
+    width: 80%;
+    padding: 15px;
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

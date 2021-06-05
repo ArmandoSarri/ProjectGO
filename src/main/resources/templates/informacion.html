@@ -18,7 +18,7 @@
     <section class="nav-bar-top">
         <div class="nav-container">
             <div>
-                <a href="" class="logo">ProjectGO</a>
+                <a th:href="@{/clicklogo}" class="logo">ProjectGO</a>
             </div>
             <nav>
                 <div class="nav-mobile">
@@ -30,19 +30,28 @@
                     </li>
                     <li>
                         <div id="container-usuario">
-                            <img src="/Imagenes/usuario.png" height="50" />
-                            <div></div>
+                            <img th:src="@{'/' + ${usuario.usuario} + '/imagen'}" height="50" />
+                            <div th:text="${nombreUsuario}"></div>
                         </div>
                         <ul class="nav-dropdown">
-                            <li>
-                                <a href="#">Iniciar sesión</a>
-                            </li>
-                            <li>
-                                <a href="#">Mi perfil</a>
-                            </li>
-                            <li>
-                                <a href="#">Cerrar sesión</a>
-                            </li>
+                        	<span th:switch="${autentificado}">
+                        		<span th:case="1">                     		
+		                            <li>
+		                                <a th:href="@{/perfil}">Mi perfil</a>
+		                            </li>
+		                            <span th:if="${admin}">
+		                            	<li><a th:href="@{/administrar}">Administrar usuarios</a></li>
+		                            </span>
+		                            <li>
+		                                <a th:href="@{/logout}">Cerrar sesión</a>
+		                            </li>
+                        		</span>
+                        		<span th:case="0">                     		
+		                            <li>
+		                                <a th:href="@{/login}">Iniciar sesión</a>
+		                            </li>
+                        		</span>
+                        	</span>
                         </ul>
                     </li>
                 </ul>

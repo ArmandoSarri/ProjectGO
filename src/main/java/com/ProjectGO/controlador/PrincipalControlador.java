@@ -5,13 +5,11 @@ import java.nio.file.Files;
 import java.util.Base64;
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.AbstractFileResolvingResource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -119,23 +117,139 @@ public class PrincipalControlador {
 	}
 	
 	@GetMapping("/guia")
-	public String guia() {
-		return "guia";
+	public String guia(Authentication authentication, Model model) {
+		
+		if (authentication != null && authentication.isAuthenticated()) {
+        	
+        	UsuarioVO usuario =  su.findByUsuario(authentication.getName());
+        	
+            model.addAttribute("usuario", usuario);
+            
+            List<UsuarioRolVO> usuariosroles = sur.findByUsuario(usuario);
+            
+            Boolean isAdmin = usuariosroles.stream().anyMatch(x->x.getRol().getIdrol() == 2);
+            
+            model.addAttribute("nombreUsuario", authentication.getName());
+            
+            model.addAttribute("autentificado", 1);
+            
+            if(isAdmin) {
+
+        		model.addAttribute("admin", "true");
+        		
+            	return "guia";
+            }
+            else {
+            	return "guia";
+            }
+        }
+        else {
+        	model.addAttribute("nombreUsuario", " ");
+        	model.addAttribute("autentificado", 0);
+        	return "guia";
+        }
 	}
 	
 	@GetMapping("/documentacion")
-	public String documentacion() {
-		return "documentacion";
+	public String documentacion(Authentication authentication, Model model) {
+		
+		if (authentication != null && authentication.isAuthenticated()) {
+        	
+        	UsuarioVO usuario =  su.findByUsuario(authentication.getName());
+        	
+            model.addAttribute("usuario", usuario);
+            
+            List<UsuarioRolVO> usuariosroles = sur.findByUsuario(usuario);
+            
+            Boolean isAdmin = usuariosroles.stream().anyMatch(x->x.getRol().getIdrol() == 2);
+            
+            model.addAttribute("nombreUsuario", authentication.getName());
+            
+            model.addAttribute("autentificado", 1);
+            
+            if(isAdmin) {
+
+        		model.addAttribute("admin", "true");
+        		
+            	return "documentacion";
+            }
+            else {
+            	return "documentacion";
+            }
+        }
+        else {
+        	model.addAttribute("nombreUsuario", " ");
+        	model.addAttribute("autentificado", 0);
+        	return "documentacion";
+        }
 	}
 	
 	@GetMapping("/ejemplos")
-	public String ejemplos() {
-		return "ejemplos";
+	public String ejemplos(Authentication authentication, Model model) {
+		
+		if (authentication != null && authentication.isAuthenticated()) {
+        	
+        	UsuarioVO usuario =  su.findByUsuario(authentication.getName());
+        	
+            model.addAttribute("usuario", usuario);
+            
+            List<UsuarioRolVO> usuariosroles = sur.findByUsuario(usuario);
+            
+            Boolean isAdmin = usuariosroles.stream().anyMatch(x->x.getRol().getIdrol() == 2);
+            
+            model.addAttribute("nombreUsuario", authentication.getName());
+            
+            model.addAttribute("autentificado", 1);
+            
+            if(isAdmin) {
+
+        		model.addAttribute("admin", "true");
+        		
+            	return "ejemplos";
+            }
+            else {
+            	return "ejemplos";
+            }
+        }
+        else {
+        	model.addAttribute("nombreUsuario", " ");
+        	model.addAttribute("autentificado", 0);
+        	return "ejemplos";
+        }
 	}
 	
 	@GetMapping("/informacion")
-	public String informacion() {
-		return "informacion";
+	public String informacion(Authentication authentication, Model model) {
+		
+		if (authentication != null && authentication.isAuthenticated()) {
+        	
+        	UsuarioVO usuario =  su.findByUsuario(authentication.getName());
+        	
+            model.addAttribute("usuario", usuario);
+            
+            List<UsuarioRolVO> usuariosroles = sur.findByUsuario(usuario);
+            
+            Boolean isAdmin = usuariosroles.stream().anyMatch(x->x.getRol().getIdrol() == 2);
+            
+            model.addAttribute("nombreUsuario", authentication.getName());
+            
+            model.addAttribute("autentificado", 1);
+            
+            if(isAdmin) {
+
+        		model.addAttribute("admin", "true");
+        		
+            	return "informacion";
+            }
+            else {
+            	return "informacion";
+            }
+        }
+        else {
+        	model.addAttribute("nombreUsuario", " ");
+        	model.addAttribute("autentificado", 0);
+        	return "informacion";
+        }
 	}
 	
 
@@ -239,5 +353,10 @@ public class PrincipalControlador {
         response.getOutputStream().close();
 
     }
+	
+	@GetMapping("/clicklogo")
+	public String clicklogo() {
+		return "redirect:/index";
+	}
 
 }

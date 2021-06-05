@@ -20,11 +20,6 @@ form {
     width: 300px;
 }
 
-imagen{
-	width: 100px;
-	height: 70px;
-}
-
 #imagen-container{
 	
 	grid-area: imagen;

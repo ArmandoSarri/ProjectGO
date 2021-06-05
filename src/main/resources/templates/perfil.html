@@ -16,7 +16,7 @@
     <section class="nav-bar-top">
         <div class="nav-container">
             <div>
-                <a href="" class="logo">ProjectGO</a>
+                <a th:href="@{/clicklogo}" class="logo">ProjectGO</a>
             </div>
             <nav>
                 <div class="nav-mobile">
@@ -60,7 +60,7 @@
 	<section class="body-container">
 	
 		<div id="imagen-container">			
-			<img id="imagen" th:src="@{'/' + ${usuario.usuario} + '/imagen'}" height="400" width="400"/>
+			<img id="imagen" th:src="@{'/' + ${usuario.usuario} + '/imagen'}" height="400" width="550"/>
 			<form action="/cambiarImagen" method="POST" enctype="multipart/form-data" class="formImagen">
 				<input type="file" name="imagen"></input>          
                 <button type="submit" class="btn btn-primary btnImagen">Guardar imagen</button>

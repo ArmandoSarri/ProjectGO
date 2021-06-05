@@ -27,9 +27,11 @@ public class UsuarioVO {
 	
 	private String usuario;
 	private String password;
+	private String correo;
+	private String telefono;
 	
 	@Lob
 	@Nullable
 	private String imagen;
-	
+
 }
