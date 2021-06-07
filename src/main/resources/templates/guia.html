@@ -8,6 +8,7 @@
     <script src="pizarra.js"></script>
     <link rel="stylesheet" href="/CSS/home.css">
     <link rel="stylesheet" href="/CSS/navbar.css">
+    <link rel="stylesheet" href="/CSS/guia.css">
     <title>Pasos a seguir</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/JS/home.js"></script>
@@ -58,8 +59,97 @@
             </nav>
         </div>
     </section>
-    <section class="home-body">
-
+    <section class="guia-body">
+    	<div id="cuerpo">
+			<h1>Índice:</h1>
+		    <div id="enlaces">
+		        <a href="#frontend">1 - Frontend</a><br> &nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#htmlcss">1.1 -  HTML y CSS</a><br> &nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#js">1.2 - JavaScript</a><br>
+		        <a href="#backend">2 - Backend</a><br> &nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#sb">2.1 - Creación del proyecto con SpringBoot</a><br>&nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#estructura">2.2 - Estructura básica del proyecto</a><br>&nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#crearBD">2.3 - Como crear la base de datos y añadir información inicial</a><br>
+		    </div>
+		    <div id="frontend">
+		        <h1>Frontend: Creación de las interfaces</h1>
+		        <h2 id="htmlcss">HTML y CSS </h2>
+		        <div>Para crear la parte visual de nuestro proyecto utilizaremos HTML y CSS. HTML es un lenguaje de marcado de hipertexto que nos permite crear y estructurar secciones, párrafos, encabezados, enlaces y elementos para páginas web y aplicaciones. HTML
+		            funciona mediante etiquetas y cada una tiene una función diferente.</div>
+		        <div>Por otra parte, CSS nos permite aplicar estilos a nuestros ficheros HTML. Utilizando CSS podremos modificar el tipo, el color o el tamaño de las letras, colocar los elementos de todas las formas que queramos, cambiar el color o colocar una imagen
+		            de fondo y mucho más. Tan solo deberemos unir nuestro fichero CSS al fichero HTML mediante un enlace en la cabecera de este último.
+		        </div>
+		        <div>link href="/estilo.css" rel="stylesheet" type="text/css"</div>
+		        <h2 id="js">JavaScript</h2>
+		        <div>Ahora que ya tenemos nuestro fichero HTML con sus estilos CSS, quizá queramos añadirle funcionalidades. Utilizando JavaScript podremos mover, crear o eliminar elementos con tan solo pulsar un botón, hacer que se ejecuten ciertos estilos solo cuando
+		            se cumpla alguna condición o incluso, obtener información de ficheros JSON que podremos utilizar en nuestra aplicación.
+		        </div>
+		        <div>Al igual que pasaba con los ficheros CSS, los ficheros JavaScript deberan ir unidos a nuestro HTML mediante un link.</div>
+		        <div>script src="/js.js</div>
+		    </div>
+		    <div id="backend">
+		        <h1>Backend</h1>
+		        <h2 id="intro">Introducción</h2>
+		        <div>
+		            Una vez que hemos creado nuestras interfaces y que ya tenemos claro que aspecto va a tener nuestra aplicación, lo siguiente que debemos pensar es en la estuctura que deberá tener nuestra base de datos para poder almacenar toda la información que queramos
+		            tratar. Sobre esta estructura se construirá el resto del proyecto.
+		        </div>
+		        <h2 id="sb">Creación proyecto con SpringBoot</h2>
+		        <div>Para la realización del backend utilizaremos SpringBoot, ya que nos permitirá unirlo de forma sencilla al frontend. Deberemos seguir los siguientes pasos para crear un proyecto con SpringBoot:
+		        </div>
+		        <figure>
+		            <img src="/Imagenes/foto1.png" />
+		            <figcaption>Pulsamos en nuevo archivo </figcaption>
+		        </figure>
+		        <figure>
+		            <img src="/Imagenes/foto2.png" />
+		            <figcaption>Escogemos el tipo de proyecto que vamos a crear </figcaption>
+		        </figure>
+		        <figure>
+		            <img src="/Imagenes/foto3.png" />
+		            <figcaption>Le damos un nombre </figcaption>
+		        </figure>
+		        <figure>
+		            <img src="/Imagenes/foto4.png" />
+		            <figcaption>Importamos las siguientes dependencias </figcaption>
+		        </figure>
+		        <h2 id="estructura">Estructura básica del proyecto</h2>
+		        <div>Una vez tenemos nuestro proyecto creado, debemos tener en cuenta que todas las clases y ficheros que vayamos a utilizar deben estar organizadas de una forma en concreto. Las clases Java deberán estar localizadas en sus paquetes correspondientes
+		            y los ficheros HTML, CSS y JavaScript en las carpetas que nos facilita SpringBoot.
+		        </div>
+		        <div>
+		            Empezaremos con las clases Java. Deberemos crear una clase para cada tabla de la base de datos y para cada una de sus relaciones en caso de que sean N:M. A estas clases se les llamará modelo. Por otra parte, cada clase modelo que hayamos creado necesitará
+		            otras tres clases que nombraremos teniendo en cuenta el nombre de la misma. Tendremos pues, el modelo que se encarga de definir los campos de cada tabla de la base de datos, el repositorio del modelo que será una interfaz que extiende de CrudRepository,
+		            el servicio del modelo que será otra interfaz que contendrá las definiciones de los métodos que podremos utilizar con los objetos de los modelos y la implementación del servicio del modelo que contendrá las funcionalidades de dichos métodos.
+		        </div>
+		        <figure>
+		            <img src="/Imagenes/foto5.png" />
+		            <figcaption>Paquetes donde guardaremos nuestras clases Java</figcaption>
+		        </figure>
+		        <div>En la imagen de arriba podemos ver el lugar donde guardar las clases citadas anteriormente pero, además, también podemos ver donde guardaremos los controladores, que se encargarán de mostrar los diferentes ficheros HTML cuando queramos o de pasar
+		            datos entre ellos entre otras cosas. También vemos un paquete dedicado a la clase java que va a contener todo lo relacionado con la seguridad de nuestro proyecto, ya que vamos a querer controlar que usuarios pueden acceder a la aplicación
+		            y que permisos tienen.
+		        </div>
+		        <h2 id="crearBD">Como crear la base de datos y añadir información inicial</h2>
+		        <div>Con la estructura que hemos creado hasta ahora, tenemos definida la forma que queremos que tenga nuestra base de datos pero, para que esta se cree al lanzar la aplicación deberemos añadir algunas indicaciones en diferentes ficheros importantes.
+		        </div>
+		        <figure>
+		            <img src="/Imagenes/foto6.png" />
+		            <figcaption>El fichero aplication.properties deberá contener el nombre de nuestro esquema de base de datos, el usuario y la contraseña</figcaption>
+		        </figure>
+		        <div>Si además de crear la base de datos queremos que esta tenga datos iniciales deberemos crear una carpeta donde guardaremos dos ficheros, un fichero .sql que tendra las sentencias necesarias para introducir los datos que queramos y un fichero .xml
+		            que indicará como se debe ejecutar el .sql.
+		        </div>
+		        <figure>
+		            <img src="/Imagenes/foto7.png" />
+		            <figcaption>Carpeta META-INF con los ficheros .sql y .xml</figcaption>
+		        </figure>
+		        <figure>
+		            <img src="/Imagenes/foto8.png" />
+		            <figcaption>Para que funcione deberemos añadir la siguiente línea en la clase programa de nuestro proyecto</figcaption>
+		        </figure>
+		    </div>
+	    </div>
     </section>
     <section class="nav-bar-bottom">
         <div class="nav-container">
