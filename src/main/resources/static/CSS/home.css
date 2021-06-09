@@ -20,18 +20,21 @@ body{
     grid-area: texto4;
 }
 
+.text-4 div{
+    margin-left: 35px;
+    margin-top: 25px;
+}
+
 .text-1,
 .text-2,
 .text-3,
 .text-4 {
-    background-image: url("Imagenes/fondo.png");
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: white;
     border: 1px solid black;
-    margin: 50px;
     cursor: pointer;
     height: 300px;
     background-repeat: no-repeat;
@@ -51,11 +54,6 @@ h1 {
     height: 80px;
 }
 
-.body-container div div {
-    margin-top: 50px;
-    margin-left: 30px;
-}
-
 .body-container {
     height: 500px;
     grid-template-columns: 800px 800px;
@@ -73,4 +71,11 @@ h1 {
 .body-container a{
 	text-decoration: none;
 	color: black;
+}
+
+.opcion{
+	
+    box-shadow: 10px 10px 15px -4px #000000;
+    margin: 50px; margin-top: 50px;
+    margin-left: 30px;
 }

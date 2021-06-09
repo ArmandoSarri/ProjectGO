@@ -8,6 +8,7 @@
     <script src="pizarra.js"></script>
     <link rel="stylesheet" href="/CSS/home.css">
     <link rel="stylesheet" href="/CSS/navbar.css">
+    <link rel="stylesheet" href="/CSS/guia.css">
     <title>Ejemplos prácticos</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/JS/home.js"></script>
@@ -30,7 +31,7 @@
                     </li>
                     <li>
                         <div id="container-usuario">
-                            <img src="/Imagenes/usuario.png" height="50" />
+                            <img th:src="@{'/' + ${usuario.usuario} + '/imagen'}" height="50" />
                             <div th:text="${nombreUsuario}"></div>
                         </div>
                         <ul class="nav-dropdown">
@@ -58,8 +59,70 @@
             </nav>
         </div>
     </section>
-    <section class="home-body">
-
+    <section class="ejemplos-body">
+		<div id="cuerpo">
+			<h1>Índice:</h1>
+		    <div id="enlaces">
+		        <a href="#frontend">1 - Frontend</a><br> &nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#htmlcss">1.1 -  Enlaces a estilos</a><br> &nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#js">1.2 - Creación de un JavaScript</a><br>
+		        <a href="#backend">2 - Backend</a><br> &nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#sb">2.1 - Creación del proyecto con SpringBoot</a><br>&nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#estructura">2.2 - Estructura básica del proyecto</a><br>&nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#crearBD">2.3 - Como crear la base de datos y añadir información inicial</a><br>
+		    </div>
+		    <div id="frontend">
+		        <h1>Frontend: Creación de las interfaces</h1>
+		        <h2 id="htmlcss">Enlaces a estilos </h2>		        
+		        <figure>
+		            <img src="/Imagenes/foto10.png" />
+		            <figcaption>Así se deben enlazar los HTML con los estilos CSS y los ficheros JavaScript </figcaption>
+		        </figure>
+		        <h2 id="js">Creación de un JavaScript</h2>		       
+		        <figure>
+		            <img src="/Imagenes/foto11.png" />
+		            <figcaption>Cuando se cargue la página, se aplicarán se aplicarán las acciones indicadas en la función "onload" del JavaScript </figcaption>
+		        </figure>
+		    </div>
+		    <div id="backend">
+		        <h1>Backend</h1>
+		        <h2 id="sb">Creación proyecto con SpringBoot</h2>
+		        <figure>
+		            <img src="/Imagenes/foto1.png" />
+		            <figcaption>Pulsamos en nuevo archivo </figcaption>
+		        </figure>
+		        <figure>
+		            <img src="/Imagenes/foto2.png" />
+		            <figcaption>Escogemos el tipo de proyecto que vamos a crear </figcaption>
+		        </figure>
+		        <figure>
+		            <img src="/Imagenes/foto3.png" />
+		            <figcaption>Le damos un nombre </figcaption>
+		        </figure>
+		        <figure>
+		            <img src="/Imagenes/foto4.png" />
+		            <figcaption>Importamos las siguientes dependencias </figcaption>
+		        </figure>
+		        <h2 id="estructura">Estructura básica del proyecto</h2>
+		        <figure>
+		            <img src="/Imagenes/foto12.png" />
+		            <figcaption>Ejemplo de aplicación con todos los paquetes necesarios</figcaption>
+		        </figure>
+		        <h2 id="crearBD">Como crear la base de datos y añadir información inicial</h2>
+		        <figure>
+		            <img src="/Imagenes/foto13.png" />
+		            <figcaption>Ejemplo de fichero data.sql</figcaption>
+		        </figure>
+		        <figure>
+		            <img src="/Imagenes/foto14.png" />
+		            <figcaption>Ejemplo de fichero persistence.xml</figcaption>
+		        </figure>
+		        <figure>
+		            <img src="/Imagenes/foto8.png" />
+		            <figcaption>Para que funcione deberemos añadir la siguiente línea en la clase programa de nuestro proyecto</figcaption>
+		        </figure>
+		    </div>
+	    </div>
     </section>
     <section class="nav-bar-bottom">
         <div class="nav-container">

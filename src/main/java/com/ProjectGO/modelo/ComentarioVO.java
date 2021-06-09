@@ -21,11 +21,19 @@ public class ComentarioVO {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int idcomentario;
+	private int id;
 	
 	@ManyToOne
 	@JoinColumn(name="idusuario")
 	private UsuarioVO usuario;
 
 	private String contenido;
+
+	public ComentarioVO(UsuarioVO usuario, String contenido) {
+		super();
+		this.usuario = usuario;
+		this.contenido = contenido;
+	}
+	
+	
 }

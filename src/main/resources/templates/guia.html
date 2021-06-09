@@ -31,7 +31,7 @@
                     </li>
                     <li>
                         <div id="container-usuario">
-                            <img src="/Imagenes/usuario.png" height="50" />
+                            <img th:src="@{'/' + ${usuario.usuario} + '/imagen'}" height="50" />
                             <div th:text="${nombreUsuario}"></div>
                         </div>
                         <ul class="nav-dropdown">
@@ -67,9 +67,10 @@
 		        <a href="#htmlcss">1.1 -  HTML y CSS</a><br> &nbsp;&nbsp;&nbsp;&nbsp;
 		        <a href="#js">1.2 - JavaScript</a><br>
 		        <a href="#backend">2 - Backend</a><br> &nbsp;&nbsp;&nbsp;&nbsp;
-		        <a href="#sb">2.1 - Creación del proyecto con SpringBoot</a><br>&nbsp;&nbsp;&nbsp;&nbsp;
-		        <a href="#estructura">2.2 - Estructura básica del proyecto</a><br>&nbsp;&nbsp;&nbsp;&nbsp;
-		        <a href="#crearBD">2.3 - Como crear la base de datos y añadir información inicial</a><br>
+		        <a href="#intro">2.1 - Introducción</a><br> &nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#sb">2.2 - Creación del proyecto con SpringBoot</a><br>&nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#estructura">2.3 - Estructura básica del proyecto</a><br>&nbsp;&nbsp;&nbsp;&nbsp;
+		        <a href="#crearBD">2.4 - Como crear la base de datos y añadir información inicial</a><br>
 		    </div>
 		    <div id="frontend">
 		        <h1>Frontend: Creación de las interfaces</h1>
@@ -130,6 +131,13 @@
 		            datos entre ellos entre otras cosas. También vemos un paquete dedicado a la clase java que va a contener todo lo relacionado con la seguridad de nuestro proyecto, ya que vamos a querer controlar que usuarios pueden acceder a la aplicación
 		            y que permisos tienen.
 		        </div>
+		        <div>En cuanto a la localización de los ficheros que componen nuestro frontend, deberán ser guardados en unas carpetas en concreto dentro de los recursos de nuestra aplicación. Los HTML deberan ir dentro de la carpeta "templates" y los CSS y JS dentro de
+		        	la carpeta "static".
+		        </div>
+		        <figure>
+		            <img src="/Imagenes/foto9.png" />
+		            <figcaption>A la hora de añadir los links a los CSS y a los JS desde HTML hay que tener en cuenta que la ruta ya comienza dentro de la carpeta "static"</figcaption>
+		        </figure>
 		        <h2 id="crearBD">Como crear la base de datos y añadir información inicial</h2>
 		        <div>Con la estructura que hemos creado hasta ahora, tenemos definida la forma que queremos que tenga nuestra base de datos pero, para que esta se cree al lanzar la aplicación deberemos añadir algunas indicaciones en diferentes ficheros importantes.
 		        </div>

@@ -29,7 +29,12 @@
                     </li>
                     <li>
                         <div id="container-usuario">
-                            <img src="/Imagenes/usuario.png" height="50" />
+                        	<span th:if="${usuario}">                      	
+                            	<img th:src="@{'/' + ${usuario.usuario} + '/imagen'}" height="50" />
+                        	</span>
+                        	<span th:unless="${usuario}">                      	
+                            	<img src="/Imagenes/usuario.png" height="50" />
+                        	</span>
                             <div th:text="${nombreUsuario}"></div>
                         </div>
                         <ul class="nav-dropdown">
@@ -59,44 +64,59 @@
     </section>
     <section class="home-body">
         <div class="body-container">
-            <a th:href="@{/guia}"><div class="text-1">
-                <h1>
-                    Pasos a seguir
-                </h1>
-                <img src="/Imagenes/pasos.png" />
-                <div>
-                    Recomendaciones para ser lo más productivo posible.
-                </div>
-            </div></a>
-            <a th:href="@{/documentacion}"><div class="text-2">
-                <h1>
-                    Documentación
-                </h1>
-                <img src="/Imagenes/documento.png" />
-                <div>
-                    Documentación útil para el desarrollo de nuestro proyecto.
-                </div>
-            </div></a>
-            <a th:href="@{/ejemplos}"><div class="text-3">
-
-                <h1>
-                    Ejemplos prácticos
-                </h1>
-                <img src="/Imagenes/practica.png" />
-                <div>
-                    Imágenes y ejemplos de código para tomar como inspiración.
-                </div>
-            </div></a>
-            <a th:href="@{/informacion}"><div class="text-4">
-
-                <h1>
-                    Acerca de esta web
-                </h1>
-                <img src="/Imagenes/pregunta.png" />
-                <div>
-                    Aquí encontrarás documentación, guías y ejemplos prácticos para desarrollar un gran proyecto de fin de ciclo.
-                </div>
-            </div></a>
+            <div class="opcion">
+            	<a th:href="@{/guia}">
+	            	<div class="text-1">
+		                <h1>
+		                    Pasos a seguir
+		                </h1>
+		                <img src="/Imagenes/pasos.png" />
+		                <div>
+		                    Recomendaciones para ser lo más productivo posible.
+		                </div>
+	            	</div>
+            	</a>
+            </div>
+            <div class="opcion">
+            	<a th:href="@{/documentacion}">
+            		<div class="text-2">
+		               	<h1>
+		                   	Documentación
+		               	</h1>
+		               	<img src="/Imagenes/documento.png" />
+		               	<div>
+		                   	Documentación útil para el desarrollo de nuestro proyecto.
+		               	</div>
+            		</div>
+            	</a>
+            </div>
+            <div class="opcion">
+	            <a th:href="@{/ejemplos}">
+		            <div class="text-3">
+		                <h1>
+		                    Ejemplos prácticos
+		                </h1>
+		                <img src="/Imagenes/practica.png" />
+		                <div>
+		                    Imágenes y ejemplos de código para tomar como inspiración.
+		                </div>
+		            </div>
+	            </a>
+            </div>
+            <div class="opcion">
+	           <a th:href="@{/informacion}">
+		           <div class="text-4">
+		
+		               <h1>
+		                   Acerca de esta web
+		               </h1>
+		               <img src="/Imagenes/pregunta.png" />
+		               <div>
+		                   Aquí encontrarás documentación, guías y ejemplos prácticos para desarrollar un gran proyecto de fin de ciclo.
+		               </div>
+		           </div>
+	           </a>
+            </div>
         </div>
     </section>
     <section class="nav-bar-bottom">

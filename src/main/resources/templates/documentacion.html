@@ -31,7 +31,7 @@
                     </li>
                     <li>
                         <div id="container-usuario">
-                            <img src="/Imagenes/usuario.png" height="50" />
+                            <img th:src="@{'/' + ${usuario.usuario} + '/imagen'}" height="50" />
                             <div th:text="${nombreUsuario}"></div>
                         </div>
                         <ul class="nav-dropdown">
@@ -60,15 +60,25 @@
         </div>
     </section>
     
-		<div id="container">
-	        
+		<div id="container">        
 	        <a href="/pdfs/programacionProyecto.pdf" target="_blank">Programación del proyecto</a>
+	        <a href="/pdfs/metodosIteracionJS.pdf" target="_blank">Métodos de iteración en JavaScript</a>
+	        <a href="/pdfs/introducciónAJAX.pdf" target="_blank">Introducción a AJAX</a>
+	        <a href="/pdfs/chuletaHTML.pdf" target="_blank">Chuleta HTML</a>
+	        <a href="/pdfs/chuletaCSS.pdf" target="_blank">Chuleta CSS</a>
+	        <a href="/pdfs/APIFetch.pdf" target="_blank">Introducción API Fetch</a>
 	   	</div>
 	   	
 	    <div id="chat">
-	        <div id="container-mensajes"></div>
-	        <form id="frmEnviarMensaje">
-	            <input type="text" name="mensaje" placeholder="Envía tu mensaje!" autocomplete="off" />
+        	<div id="container-mensajes">	        	
+		        <div th:each="comentario : ${comentarios}">
+		        	<div th:text="${comentario.usuario.usuario + ': '}" class="usuario"></div>	
+		        	<div th:text="${comentario.contenido}"></div>		        	
+		        </div>
+	        </div>
+	        <form th:action="@{/enviarComentario}" method="post">
+	            <input type="text" name="comentario" placeholder="Envía tu mensaje!" autocomplete="off" id="comentario"/>
+	            <input type="submit" value="Enviar"/>
 	        </form>
 	    </div>
     

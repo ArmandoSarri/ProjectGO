@@ -2,6 +2,7 @@ package com.ProjectGO.controlador;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -23,8 +24,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.ProjectGO.modelo.ComentarioVO;
 import com.ProjectGO.modelo.UsuarioRolVO;
 import com.ProjectGO.modelo.UsuarioVO;
+import com.ProjectGO.servicio.ServicioComentario;
 import com.ProjectGO.servicio.ServicioRol;
 import com.ProjectGO.servicio.ServicioUsuario;
 import com.ProjectGO.servicio.ServicioUsuarioRol;
@@ -40,6 +43,9 @@ public class PrincipalControlador {
 	
 	@Autowired
 	private ServicioRol sr;
+	
+	@Autowired
+	private ServicioComentario sc;
 	
 	@Autowired
 	private BCryptPasswordEncoder encriptador;
@@ -152,6 +158,10 @@ public class PrincipalControlador {
 	
 	@GetMapping("/documentacion")
 	public String documentacion(Authentication authentication, Model model) {
+        
+		List<ComentarioVO> comentarios = new ArrayList<ComentarioVO>();
+		
+		comentarios = (List<ComentarioVO>) sc.findAllByOrderByIdDesc();
 		
 		if (authentication != null && authentication.isAuthenticated()) {
         	
@@ -166,6 +176,8 @@ public class PrincipalControlador {
             model.addAttribute("nombreUsuario", authentication.getName());
             
             model.addAttribute("autentificado", 1);
+    		
+    		model.addAttribute("comentarios", comentarios);
             
             if(isAdmin) {
 
@@ -178,10 +190,12 @@ public class PrincipalControlador {
             }
         }
         else {
+        	model.addAttribute("comentarios", comentarios);
         	model.addAttribute("nombreUsuario", " ");
         	model.addAttribute("autentificado", 0);
         	return "documentacion";
         }
+		
 	}
 	
 	@GetMapping("/ejemplos")
@@ -358,5 +372,26 @@ public class PrincipalControlador {
 	public String clicklogo() {
 		return "redirect:/index";
 	}
+	
+	@RequestMapping("/enviarComentario")
+    public String enviarComentario(@RequestParam(name="comentario") String comentario, Model modelo, Authentication authentication) {
+
+		UsuarioVO usuario = su.findByUsuario(authentication.getName());
+		ComentarioVO comen = new ComentarioVO(usuario, comentario);
+        sc.save(comen);
+        
+        return "redirect:/documentacion";
+    }
+	
+	@RequestMapping("/modificarDatos")
+    public String modificarDatos(@RequestParam(name="correo") String correo, @RequestParam(name="telefono") String telefono, Model modelo, Authentication authentication) {
+
+		UsuarioVO usuario = su.findByUsuario(authentication.getName());
+		usuario.setCorreo(correo);
+		usuario.setTelefono(telefono);
+        su.save(usuario);
+        
+        return "redirect:/perfil";
+    }
 
 }

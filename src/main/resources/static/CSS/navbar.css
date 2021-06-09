@@ -1,9 +1,14 @@
+
 .nav-bar-top,
 .nav-bar-bottom {
     height: 70px;
     background: #015198;
     display: block;
     width: 100vw;
+}
+
+.nav-bar-bottom{
+	bottom: 0px;
 }
 
 .logo {

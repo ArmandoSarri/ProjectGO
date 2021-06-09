@@ -1,5 +1,6 @@
 package com.ProjectGO.servicio;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import com.ProjectGO.modelo.ComentarioVO;
@@ -27,5 +28,7 @@ public interface ServicioComentario {
 	void deleteAll(Iterable<? extends ComentarioVO> entities);
 
 	void deleteAll();
+	
+	ArrayList<ComentarioVO> findAllByOrderByIdDesc();
 
 }

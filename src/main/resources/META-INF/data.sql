@@ -7,3 +7,5 @@ insert into usuarios(usuario, password) values ("charo", "$2a$10$gBYrEJl3IJ6B8IP
 insert into usuariosroles(idrol, idusuario) values (1, 2);
 insert into usuariosroles(idrol, idusuario) values (2, 1);
 insert into usuariosroles(idrol, idusuario) values (1, 1);
+
+insert into comentarios(idusuario, contenido) values (1, "Comenta lo que quieras!");

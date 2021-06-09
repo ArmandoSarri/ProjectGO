@@ -1,5 +1,6 @@
 package com.ProjectGO.servicioImpl;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,6 +69,12 @@ public class ServicioComentarioImpl implements ServicioComentario {
 	@Override
 	public void deleteAll() {
 		cr.deleteAll();
+	}
+
+	@Override
+	public ArrayList<ComentarioVO> findAllByOrderByIdDesc() {
+		
+		return cr.findAllByOrderByIdDesc();
 	}
 	
 	

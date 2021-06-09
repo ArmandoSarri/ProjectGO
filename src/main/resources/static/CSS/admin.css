@@ -9,7 +9,7 @@ body{
 .nav-bar-bottom {
     width: 100vw;
     position: absolute;
-    bottom: 20px;
+    bottom: 0px;
 }
 
 .tabla{

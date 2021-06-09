@@ -67,12 +67,16 @@
             </form>
 		</div>
 		
-		<form>
+		<form th:action="@{/modificarDatos}" method="post">
 			<fieldset>
 				<legend>Datos:</legend>
-		        <div>Usuario: </div><div th:text="${nombreUsuario}"></div><br>
-		        <div>Correo: </div><div th:text="${nombreUsuario}"></div><br>
-		        <div>Teléfono: </div><div th:text="${nombreUsuario}"></div><br>
+		        <div>Usuario: </div>
+		        <div th:text="${nombreUsuario}"></div><br>
+		        <div>Correo: </div>
+		        <input type="text" th:value="${usuario.correo}" id="correo" name="correo"/><br>
+		        <div>Teléfono: </div>
+		        <input type="text" th:value="${usuario.telefono}" name="telefono"/><br>
+		        <input type="submit" value="Modificar" id="boton"/>
 			</fieldset>
 	    </form>	
 	    	
