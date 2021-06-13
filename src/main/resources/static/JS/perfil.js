@@ -1,10 +1,10 @@
-console.log("4");
+
 window.onload = function(){
 
 	$("input[type=file]").change(function(){
-console.log("2");
+
         if (this.files && this.files[0]) {
-        console.log("3");
+
             var reader = new FileReader();
 
             reader.readAsDataURL(this.files[0]);
